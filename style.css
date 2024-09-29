@@ -1,5 +1,106 @@
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #e2e2e2;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+canvas {
+    background-color: white;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.p-4 {
+    padding: 1rem;
+}
+
+.bg-teal-600 {
+    background-color: #4fd1c5;
+}
+
+.w-[640px] {
+    width: 640px;
+}
+
+.bg-gray-300 {
+    background-color: #d1d5db;
+}
+
+.border-t {
+    border-top: 1px solid #fff;
+}
+
+.border-l {
+    border-left: 1px solid #fff;
+}
+
+.border-r {
+    border-right: 1px solid #fff;
+}
+
+.border-b {
+    border-bottom: 1px solid #fff;
+}
+
+.border-gray-800 {
+    border-color: #1f2937;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.mb-1 {
+    margin-bottom: 0.25rem;
+}
+
+.px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.hover\:bg-gray-400:hover {
+    background-color: #9ca3af;
+}
+
+.text-xs {
+    font-size: 0.75rem;
+}
+
+.grid {
+    display: grid;
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.gap-\[1px\] {
+    gap: 1px;
+}
+
+.cursor-crosshair {
+    cursor: crosshair;
+}
+
+.border-2 {
+    border-width: 2px;
+}
+
+.border-gray-600 {
+    border-color: #4b5563;
 }
