@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
 import React, { useRef, useState, useEffect } from 'react'
 import { Pencil, Eraser } from 'lucide-react'
 
-export default function Paint() {
+export default function Component() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [selectedTool, setSelectedTool] = useState('brush')
   const [selectedColor, setSelectedColor] = useState('#000000')
