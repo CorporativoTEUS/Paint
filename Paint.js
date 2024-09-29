@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { Pencil, Eraser } from 'lucide-react'
 
-export default function Component() {
+export default function Paint() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [selectedTool, setSelectedTool] = useState('brush')
   const [selectedColor, setSelectedColor] = useState('#000000')
