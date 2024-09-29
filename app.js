@@ -1,36 +1,36 @@
 "use client"
 
-import React, { useRef, useState, useEffect } from 'react'
-import { Pencil, Eraser } from 'lucide-react'
+import React, { useRef, useState, useEffect } from 'react';
+import { Pencil, Eraser } from 'lucide-react';
 
 export default function Component() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const [selectedTool, setSelectedTool] = useState('brush')
-  const [selectedColor, setSelectedColor] = useState('#000000')
-  const [isDrawing, setIsDrawing] = useState(false)
-  const [activeMenu, setActiveMenu] = useState<string | null>(null)
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [selectedTool, setSelectedTool] = useState('brush');
+  const [selectedColor, setSelectedColor] = useState('#000000');
+  const [isDrawing, setIsDrawing] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current
+    const canvas = canvasRef.current;
     if (canvas) {
-      const context = canvas.getContext('2d')
+      const context = canvas.getContext('2d');
       if (context) {
-        context.fillStyle = 'white'
-        context.fillRect(0, 0, canvas.width, canvas.height)
+        context.fillStyle = 'white';
+        context.fillRect(0, 0, canvas.width, canvas.height);
       }
     }
-  }, [])
+  }, []);
 
   const tools = [
     { name: 'brush', icon: <Pencil className="w-4 h-4" /> },
     { name: 'eraser', icon: <Eraser className="w-4 h-4" /> },
-  ]
+  ];
 
   const colors = [
     '#000000', '#808080', '#800000', '#808000', '#008000', '#008080', '#000080', '#800080',
     '#FFFFFF', '#C0C0C0', '#FF0000', '#FFFF00', '#00FF00', '#00FFFF', '#0000FF', '#FF00FF',
     '#FFFF80', '#80FF80', '#80FFFF', '#8080FF', '#FF80FF', '#FF8080'
-  ]
+  ];
 
   const menuOptions = [
     { name: 'File', items: ['New', 'Open', 'Save', 'Exit'] },
@@ -39,62 +39,62 @@ export default function Component() {
     { name: 'Image', items: ['Flip/Rotate', 'Stretch/Skew', 'Invert Colors'] },
     { name: 'Options', items: ['Draw Opaque'] },
     { name: 'Help', items: ['Help Topics', 'About Paint'] },
-  ]
+  ];
 
   const handleToolClick = (tool: string) => {
-    setSelectedTool(tool)
-  }
+    setSelectedTool(tool);
+  };
 
   const handleColorClick = (color: string) => {
-    setSelectedColor(color)
-    setSelectedTool('brush')
-  }
+    setSelectedColor(color);
+    setSelectedTool('brush');
+  };
 
   const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    setIsDrawing(true)
-    draw(e)
-  }
+    setIsDrawing(true);
+    draw(e);
+  };
 
   const stopDrawing = () => {
-    setIsDrawing(false)
-    const canvas = canvasRef.current
+    setIsDrawing(false);
+    const canvas = canvasRef.current;
     if (canvas) {
-      const context = canvas.getContext('2d')
+      const context = canvas.getContext('2d');
       if (context) {
-        context.beginPath()
+        context.beginPath();
       }
     }
-  }
+  };
 
   const draw = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    if (!isDrawing) return
+    if (!isDrawing) return;
 
-    const canvas = canvasRef.current
+    const canvas = canvasRef.current;
     if (canvas) {
-      const context = canvas.getContext('2d')
+      const context = canvas.getContext('2d');
       if (context) {
-        const rect = canvas.getBoundingClientRect()
-        const x = e.clientX - rect.left
-        const y = e.clientY - rect.top
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
-        context.lineWidth = selectedTool === 'eraser' ? 40 : 2
-        context.lineCap = 'round'
-        context.strokeStyle = selectedTool === 'eraser' ? 'white' : selectedColor
+        context.lineWidth = selectedTool === 'eraser' ? 40 : 2;
+        context.lineCap = 'round';
+        context.strokeStyle = selectedTool === 'eraser' ? 'white' : selectedColor;
 
         if (selectedTool === 'eraser') {
-          context.beginPath()
-          context.arc(x, y, 20, 0, Math.PI * 2)
-          context.fill()
+          context.beginPath();
+          context.arc(x, y, 20, 0, Math.PI * 2);
+          context.fill();
         } else {
-          context.lineTo(x, y)
-          context.stroke()
+          context.lineTo(x, y);
+          context.stroke();
         }
 
-        context.beginPath()
-        context.moveTo(x, y)
+        context.beginPath();
+        context.moveTo(x, y);
       }
     }
-  }
+  };
 
   return (
     <div className="flex flex-col items-center p-4 bg-teal-600">
@@ -172,5 +172,6 @@ export default function Component() {
         </div>
       </div>
     </div>
-  )
+  );
 }
+
