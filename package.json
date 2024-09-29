@@ -1,1 +1,4 @@
-npm init -y
+{
+  "homepage": "https://corporativoteus.github.io/Paint",
+  ...
+}
